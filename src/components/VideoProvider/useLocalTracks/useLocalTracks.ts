@@ -22,7 +22,7 @@ function getNoiseCancellationOptions(): NoiseCancellationOptions | undefined {
 
     case 'rnnoise':
       return {
-        sdkAssetsPath: '/noisecancellation/rnnoise',
+        sdkAssetsPath: '/noisecancellation/rnnoise/2.0.0',
         vendor: 'rnnoise',
       };
 
