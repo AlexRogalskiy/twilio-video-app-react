@@ -7,7 +7,7 @@ import Video, {
   LocalAudioTrack,
   CreateLocalTrackOptions,
   NoiseCancellationOptions,
-  LocalAudioTrackOptions,
+  CreateLocalAudioTrackOptions,
 } from 'twilio-video';
 
 const ancKind = getANCKind();
@@ -16,7 +16,7 @@ function getNoiseCancellationOptions(): NoiseCancellationOptions | undefined {
   switch (ancKind) {
     case 'krisp':
       return {
-        sdkAssetsPath: '/noisecancellation/krisp',
+        sdkAssetsPath: '/noisecancellation/twilio-krisp-audio-plugin/0.0.5/dist',
         vendor: 'krisp',
       };
 
@@ -39,7 +39,7 @@ export default function useLocalTracks() {
   const [isAcquiringLocalTracks, setIsAcquiringLocalTracks] = useState(false);
 
   const getLocalAudioTrack = useCallback((deviceId?: string) => {
-    const options: LocalAudioTrackOptions = { noiseCancellationOptions };
+    const options: CreateLocalAudioTrackOptions = { noiseCancellationOptions };
 
     if (deviceId) {
       options.deviceId = { exact: deviceId };
